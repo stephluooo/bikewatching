@@ -22,3 +22,52 @@ html, body {
     height: 500px;
     pointer-events: none
   }
+
+  circle {
+    fill: steelblue;
+    fill-opacity: 0.6; /* 60% opacity */
+    stroke: white;
+    stroke-width: 1;
+    pointer-events: auto;
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+    );
+    fill: var(--color);
+  }
+
+/* LEGEND STYLES */
+.legend {
+    display: flex;
+    justify-content: space-between; /* Ensures equal spacing */
+    align-items: center;
+    width: 100%;
+    max-width: 100%; /* Set to 100% to match the map width */
+    margin-block: 10px; /* Adds spacing above and below */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Ensuring the legend takes the full map width */
+#map + .legend {
+    width: 100%; /* Same width as the map */
+}
+
+/* Legend color blocks */
+.legend div {
+    flex: 1; /* Ensures equal width for each legend item */
+    padding: 10px 0; /* Increased vertical padding for balance */
+    color: white; /* Ensures text contrast */
+    text-align: center;
+    background-color: color-mix(
+        in oklch,
+        steelblue calc(100% * var(--departure-ratio)),
+        darkorange calc(100% - 100% * var(--departure-ratio))
+    ); /* Dynamic color based on departure ratio */
+}
+
+
+ 

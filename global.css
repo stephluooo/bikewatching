@@ -17,3 +17,23 @@ h1 {
     text-align: center;
     margin-bottom: 20px; /* Adds space between title and map */
 }
+
+header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+}
+
+label {
+    margin-left: auto;
+}
+
+time, em {
+    display: block; /* Ensures they stay on their own line */
+}
+
+em {
+    color: gray;
+    font-style: italic;
+}
+
